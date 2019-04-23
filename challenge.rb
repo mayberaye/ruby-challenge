@@ -11,7 +11,7 @@ recipient = info['recipient']
 message = info['message']
 
 #open browser & goto login page
-browser = Watir::Browser.new 
+browser = Watir::Browser.new
 browser.goto 'linkedin.com/login'
 
 #find username text field
@@ -32,7 +32,11 @@ browser.goto 'linkedin.com/messaging/compose'
 
 #enter recipient name into text box
 whom =  browser.text_field(placeholder: "Type a name or multiple names…")
-whom.set(recipient + "\n")
+whom.set(recipient)
+
+#select recipient from dropdown
+ whom_specifically = browser.button(class: "display-flex", role:"option")
+ whom_specifically.click
 
 #move to message box and enter message
 message_box = browser.div(class: "msg-form__contenteditable t-14 t-black--light t-normal flex-grow-1")
