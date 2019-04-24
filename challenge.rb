@@ -39,7 +39,7 @@ whom.set(recipient)
  whom_specifically.click
 
 #move to message box and enter message
-message_box = browser.text_field(tag_name: "form", class: "msg-form")
+message_box = browser.element(tag_name: "form", class: "msg-form")
 message_box.set(message)
 
 #send message
