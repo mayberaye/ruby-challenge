@@ -11,7 +11,7 @@ recipient = info['recipient']
 message = info['message']
 
 #open browser & goto login page
-browser = Watir::Browser.new
+browser = Watir::Browser.new :firefox
 browser.goto 'linkedin.com/login'
 
 #find username text field
@@ -39,7 +39,7 @@ whom.set(recipient)
  whom_specifically.click
 
 #move to message box and enter message
-message_box = browser.element(tag_name: "form", class: "msg-form")
+message_box = browser.div(class:"msg-form__contenteditable t-14 t-black--light t-normal flex-grow-1", role: "textbox")
 message_box.set(message)
 
 #send message
